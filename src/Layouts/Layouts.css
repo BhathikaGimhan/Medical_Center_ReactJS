@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.status-view{
+    @apply flex w-20 h-10 rounded-full bg-blue-50 border text-white font-sans justify-center items-center;
+}
