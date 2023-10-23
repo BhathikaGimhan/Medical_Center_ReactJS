@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 .status-view{
-    @apply flex w-20 h-10 rounded-full bg-blue-50 border text-white font-sans justify-center items-center;
+    @apply flex fixed w-20 h-10 rounded-full border font-sans shadow-[0px_0px_10px] shadow-[#00000056] bottom-0 right-0 m-4;
+}
+.status-body{
+    @apply flex justify-center items-center relative ml-[15px] text-blue-500 m-auto font-extrabold;
 }
