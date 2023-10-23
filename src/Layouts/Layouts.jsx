@@ -9,7 +9,7 @@ const Layouts = () => {
   return (
     <>
       <NavBar />
-      <Status />
+      <Status status={0} />
       <Home />
     </>
   )
