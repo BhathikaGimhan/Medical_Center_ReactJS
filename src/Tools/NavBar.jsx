@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import UserCard from './user/UserCard';
 import { Modal } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
@@ -24,7 +25,8 @@ const NavBar = () => {
     setShow(true);
     setShowSignUp(true);
   }
-
+  // const location = useLocation();
+  // console.log(location);
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -33,7 +35,15 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link>
+                <Link to="/">Home</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/contact-us">Contact</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/about-us">About</Link>
+              </Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

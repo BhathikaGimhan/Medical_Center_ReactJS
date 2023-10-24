@@ -1,16 +1,16 @@
 import React from 'react'
 import './Layouts.css';
 import NavBar from '../Tools/NavBar';
-import Home from '../pages/Home';
 import Status from '../Tools/Status';
+import { Outlet } from 'react-router-dom';
 
 
 const Layouts = () => {
   return (
     <>
-      <NavBar />
-      <Status status={1} />
-      <Home />
+      <NavBar /> 
+      <Status status={1} /> 
+      <Outlet />
     </>
   )
 }

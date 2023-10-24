@@ -1,10 +1,12 @@
+// import { Router } from 'react-router-dom';
 import './App.css';
-import Layouts from './Layouts/Layouts';
+import MainRouters from './routes/MainRouters';
+// import Layouts from './Layouts/Layouts';
 
 function App() {
   return (
     <>
-      <Layouts />
+      <MainRouters />
     </>
   );
 }
