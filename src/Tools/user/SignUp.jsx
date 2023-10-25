@@ -3,7 +3,11 @@ import React from 'react'
 
 const SignUp = () => {
   return (
-    <div>hello2</div>
+    <div>
+      <button type="button" class="login-with-google-btn w-full" >
+        Sign in with Google
+      </button>
+    </div>
   )
 }
 

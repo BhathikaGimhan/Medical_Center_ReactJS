@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import UserCard from './user/UserCard';
-import { Modal } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Col, Modal, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Headroom from 'react-headroom';
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
@@ -25,33 +25,27 @@ const NavBar = () => {
     setShow(true);
     setShowSignUp(true);
   }
+  
   // const location = useLocation();
   // console.log(location);
   return (
     <>
+    <Headroom>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">Medical Center</Navbar.Brand>
+          <Navbar.Brand href="/"><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/"><Row><Col><img src="./assets/logo.png" className='w-10 h-10' alt="" /></Col><Col> <div className="pt-1">Medical Center</div></Col></Row></Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link>
-                <Link to="/">Home</Link>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/">Home</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="/contact-us">Contact</Link>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/contact-us">Contact</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="/about-us">About</Link>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/about-us">About</Link>
               </Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
             </Nav>
             <Nav>
               <Nav.Link onClick={handleSignIn}>Sign in</Nav.Link>
@@ -60,10 +54,8 @@ const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      {show && <Modal show={show} onHide={handleClose}>
-        <UserCard showSignUp={showSignUp} handleClose={handleClose} />
-      </Modal>}
+    </Headroom>
+      {show && <Modal show={show} onHide={handleClose}><UserCard showSignUp={showSignUp} handleClose={handleClose} /></Modal>}
     </>
   );
 }
