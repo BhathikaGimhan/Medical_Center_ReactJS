@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form } from 'react-bootstrap'
 
-const SignIn = () => {
+const SignIn = ({ handleShowSignUp }) => {
   return (
     <>
       <Form>
@@ -25,7 +25,7 @@ const SignIn = () => {
       </Button>
     </Form>
     <hr />
-    <p>Login with Google: <div className="login-icon"></div><code>(Recommended)</code></p>
+    <p>Login with Google: <div className="login-icon" onClick={handleShowSignUp}></div><code>(Recommended)</code></p>
     </>
 
   )
