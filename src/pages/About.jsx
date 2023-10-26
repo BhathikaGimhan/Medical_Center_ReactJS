@@ -1,9 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import {firestore} from '../firebase';
 import {addDoc,collection} from '@firebase/firestore';
 
 const About = () => {
+  const [showForm, setShowForm] = useState(true);
   const msgref = useRef();
   const ageref = useRef();
   const ref = collection(firestore,'users');
@@ -16,12 +17,15 @@ const About = () => {
     }
     try{
       addDoc (ref,data);
+      setShowForm(false);
+      msgref.current.value = '';
+      ageref.current.value = '';
     }catch(err){
       console.log(err);
     }
   }
   return (
-    <div>
+    <div className={`fade-in-out ${showForm ? '' : 'hide'}`}>
       <Form onSubmit={hadelSave}>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Your Name</Form.Label>
