@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap'
 
 const SignIn = () => {
   return (
+    <>
       <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -23,6 +24,10 @@ const SignIn = () => {
         Submit
       </Button>
     </Form>
+    <hr />
+    <p>Login with Google: <div className="login-icon"></div><code>(Recommended)</code></p>
+    </>
+
   )
 }
 

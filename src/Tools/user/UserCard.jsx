@@ -7,11 +7,13 @@ const UserCard = ({ showSignUp, handleClose }) => {
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title>Popup Card</Modal.Title>
+        <Modal.Title>
+          {showSignUp ? "Sign up" : "Sign in"}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Container>
-          {showSignUp ? <SignUp /> : <SignIn />}
+          {showSignUp ? <SignIn /> : <SignUp />}
         </Container>
       </Modal.Body>
     </>

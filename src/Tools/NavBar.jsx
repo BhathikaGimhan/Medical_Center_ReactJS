@@ -53,9 +53,10 @@ const NavBar = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
+        {show && <Modal show={show} onHide={handleClose}><UserCard showSignUp={showSignUp} handleClose={handleClose} /></Modal>}
       </Navbar>
     </Headroom>
-      {show && <Modal show={show} onHide={handleClose}><UserCard showSignUp={showSignUp} handleClose={handleClose} /></Modal>}
+      
     </>
   );
 }
