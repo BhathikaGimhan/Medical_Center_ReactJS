@@ -1,10 +1,18 @@
 // import { Modal } from 'bootstrap'
 import { Button, Form } from 'react-bootstrap'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const SignUp = ({ handleShowSignUp }) => {
+const SignUp = () => {
+  const [value, setValue] = useState('');
+  useEffect(() => {
+    const savedEmail = localStorage.getItem('email');
+    if (savedEmail) {
+      setValue(savedEmail);
+    }
+  }, []);
   return (
     <div>
+    {value ? 
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Your Name <code>*</code></Form.Label>
@@ -24,6 +32,9 @@ const SignUp = ({ handleShowSignUp }) => {
         Submit
       </Button>
     </Form>
+    :
+    <h2>please signup</h2>
+  }
     </div>
   )
 }

@@ -26,8 +26,6 @@ const NavBar = () => {
     setShowSignUp(true);
   }
   
-  // const location = useLocation();
-  // console.log(location);
   return (
     <>
     <Headroom>
