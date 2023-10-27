@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { collection, getDocs, doc, updateDoc, deleteDoc  } from '@firebase/firestore';
 import { firestore } from '../firebase';
+import { Button } from 'react-bootstrap';
 
 const Contact = () => {
   const [userData, setUserData] = useState([]);
@@ -70,14 +71,14 @@ const Contact = () => {
             {editMode === user.id ? (
               <div>
                 <input type="text" defaultValue={user.name} ref={nameRef} />
-                <input type="text" defaultValue={user.age} ref={ageRef} />
+                <input type="text" defaultValue={user.role} ref={ageRef} />
                 <button onClick={() => handleSave(user.id, nameRef.current.value, ageRef.current.value)}>Save</button>
               </div>
             ) : (
               <div>
-                Name: {user.name}, Age: {user.age}
-                <button onClick={() => handleEdit(user.id)}>Edit</button>
-                <button onClick={() => handleDelete(user.id)}>Delete</button>
+                Name: {user.name}, Age: {user.role === "1" ? 'Student' : user.role === "2" ? 'Lectur' : 'Other'}
+                <Button onClick={() => handleEdit(user.id)}>Edit</Button>
+                <Button variant="danger" onClick={() => handleDelete(user.id)}>Delete</Button>
               </div>
             )}
           </li>

@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "@firebase/firestore"
+// import { getFirestore } from "@firebase/firestore"
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore, collection, doc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCn2L_mOhKRsJY1QYCx_iZymj_uUm2yTZs",

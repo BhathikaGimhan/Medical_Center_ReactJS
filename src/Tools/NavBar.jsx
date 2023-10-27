@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,18 +6,16 @@ import UserCard from './user/UserCard';
 import { Col, Modal, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Headroom from 'react-headroom';
+import { collection, getDocs, query, where } from '@firebase/firestore';
+import { firestore } from '../firebase';
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [userData, setUserData] = useState([]);
 
   const handleClose = () => {
     setShow(false);
-    setShowSignUp(false);
-  }
-
-  const handleSignIn = () => {
-    setShow(true);
     setShowSignUp(false);
   }
 
@@ -25,7 +23,31 @@ const NavBar = () => {
     setShow(true);
     setShowSignUp(true);
   }
-  
+
+  const [value, setValue] = useState('');
+  useEffect(() => {
+    const savedEmail = localStorage.getItem('name');
+    if (savedEmail) {
+      setValue(savedEmail);
+    }
+  }, []);
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(query(collection(firestore, 'users'), where('name', '==', value)));
+      const data = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setUserData(data);
+    };
+
+    fetchData();
+  },);
   return (
     <>
     <Headroom>
@@ -46,8 +68,8 @@ const NavBar = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link onClick={handleSignIn}>Sign in</Nav.Link>
-              <Nav.Link onClick={handleSignUp}>Sign Up</Nav.Link>
+              {value ? userData.length > 0?  <Nav.Link onClick={handleLogout}>log out</Nav.Link> : <Nav.Link onClick={handleSignUp}>Register</Nav.Link> : <Nav.Link onClick={handleSignUp}>Sign In</Nav.Link>}
+              
             </Nav>
           </Navbar.Collapse>
         </Container>

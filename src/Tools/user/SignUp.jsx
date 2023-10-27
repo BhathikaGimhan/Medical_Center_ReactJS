@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 const SignUp = () => {
   const [value, setValue] = useState('');
   useEffect(() => {
-    const savedEmail = localStorage.getItem('email');
+    const savedEmail = localStorage.getItem('name');
     if (savedEmail) {
       setValue(savedEmail);
     }
@@ -16,7 +16,7 @@ const SignUp = () => {
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Your Name <code>*</code></Form.Label>
-        <Form.Control type="text" placeholder="Enter yor name" />
+        <Form.Control type="text" placeholder="Enter yor name" value={value} />
       </Form.Group>
       <Form.Group>
         <Form.Label>Select your positon <code>*</code></Form.Label>
@@ -27,6 +27,8 @@ const SignUp = () => {
         <option value="3">Other</option>
         </Form.Select>
       </Form.Group>
+      <Form.Control type="hidden" name="myHiddenField" value="hiddenValue" />
+      
       <br />
       <Button variant="primary" type="submit">
         Submit

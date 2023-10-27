@@ -8,7 +8,7 @@ const UserCard = ({ showSignUp, handleClose }) => {
     <>
       <Modal.Header closeButton>
         <Modal.Title>
-          {showSignUp ? "Sign up" : "Sign in"}
+          {showSignUp ? "Sign In" : "Sign Up"}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
