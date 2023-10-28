@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState } from 'react'
 import {auth, provider, firestore} from '../../firebase'
-import { signInWithPopup } from 'firebase/auth'
+import { signInWithPopup } from '@firebase/auth'
 import { Button, Form } from 'react-bootstrap';
 import {addDoc,collection} from '@firebase/firestore';
 
