@@ -9,7 +9,7 @@ import UserCard from './user/UserCard';
 const NavBar = () => {
   const [show, setShow] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  const [showLogout, setShowLogout] = useState(false);
+  // const [showLogout, setShowLogout] = useState(false);
   const [userData, setUserData] = useState([]);
   const [value, setValue] = useState('');
 
@@ -24,7 +24,7 @@ const NavBar = () => {
   }
   const handleLogout = () => {
     setShow(true);
-    setShowLogout(true);
+    setShowSignUp(false);
   }
 
   useEffect(() => {
