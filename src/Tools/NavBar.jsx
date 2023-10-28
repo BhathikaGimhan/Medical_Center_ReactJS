@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Container, Nav, Navbar, Row, Col, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Headroom from 'react-headroom';
-import { collection, getDocs, query, where } from '@firebase/firestore';
-import { firestore } from '../firebase';
 import UserCard from './user/UserCard';
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   // const [showLogout, setShowLogout] = useState(false);
-  const [userData, setUserData] = useState([]);
   const [value, setValue] = useState('');
 
   const handleClose = () => {
@@ -34,18 +31,7 @@ const NavBar = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const querySnapshot = await getDocs(query(collection(firestore, 'users'), where('name', '==', value)));
-      const data = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setUserData(data);
-    };
-
-    fetchData();
-  }, [value]);
+  const savedEmail = localStorage.getItem('role');
 
   return (
     <Headroom>
@@ -65,10 +51,11 @@ const NavBar = () => {
               <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/">Home</Link></Nav.Link>
               <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/contact-us">Contact</Link></Nav.Link>
               <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/about-us">About</Link></Nav.Link>
+              <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/appointment">Appointment</Link></Nav.Link>
             </Nav>
             <Nav>
               {value ? (
-                userData.length > 0 ? (
+                savedEmail ? (
                   <Nav.Link onClick={handleLogout}>Log Out</Nav.Link>
                 ) : (
                   <Nav.Link onClick={handleSignUp}>Register</Nav.Link>

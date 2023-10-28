@@ -44,9 +44,11 @@ const SignIn = () => {
       email:emailRef.current.value,
       name:msgref.current.value,
       role:optionRef.current.value
+      
     }
     try{
       addDoc (ref,data);
+      localStorage.setItem('role', optionRef.current.value);
       msgref.current.value = '';
       optionRef.current.value = '';
       emailRef.current.value = '';
