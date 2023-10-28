@@ -9,6 +9,7 @@ import UserCard from './user/UserCard';
 const NavBar = () => {
   const [show, setShow] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
   const [userData, setUserData] = useState([]);
   const [value, setValue] = useState('');
 
@@ -21,10 +22,9 @@ const NavBar = () => {
     setShow(true);
     setShowSignUp(true);
   }
-
   const handleLogout = () => {
-    localStorage.clear();
-    window.location.reload();
+    setShow(true);
+    setShowLogout(true);
   }
 
   useEffect(() => {
@@ -74,12 +74,12 @@ const NavBar = () => {
                   <Nav.Link onClick={handleSignUp}>Register</Nav.Link>
                 )
               ) : (
-                <Nav.Link onClick={handleSignUp}>Sign In</Nav.Link>
+                <Nav.Link onClick={handleSignUp}>Log In</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
         </Container>
-        {show && <Modal show={show} onHide={handleClose}><UserCard showSignUp={showSignUp} handleClose={handleClose} /></Modal>}
+        {show && <Modal show={show} onHide={handleClose}><UserCard showSignUp={showSignUp} showLogout={showSignUp} handleClose={handleClose} /></Modal>}
       </Navbar>
     </Headroom>
   );

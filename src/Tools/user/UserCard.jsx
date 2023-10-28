@@ -4,11 +4,12 @@ import SignUp from './SignUp';
 import { Container, Modal } from 'react-bootstrap';
 
 const UserCard = ({ showSignUp, handleClose }) => {
+  console.log(handleClose);
   return (
     <>
       <Modal.Header closeButton>
         <Modal.Title>
-          {showSignUp ? "Sign In" : "Sign Up"}
+          {showSignUp ? "Sign In" : "Confirm Log Out"}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

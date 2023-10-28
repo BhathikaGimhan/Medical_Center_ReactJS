@@ -28,3 +28,7 @@
 .fade-in-out.hide {
   opacity: 0;
 }
+
+.null-body{
+  @apply flex flex-col items-center justify-center h-[80vh] m-auto text-center;
+}

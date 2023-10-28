@@ -8,6 +8,7 @@ import {addDoc,collection} from '@firebase/firestore';
 const SignIn = () => {
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
+  const [showForm, setShowForm] = useState(true);
   const handleClick = () => {
     signInWithPopup(auth, provider).then((data)=>{
       setDisplayName(data.user.displayName)
@@ -49,7 +50,11 @@ const SignIn = () => {
       msgref.current.value = '';
       optionRef.current.value = '';
       emailRef.current.value = '';
-      window.location.reload();
+      setShowForm(false);
+      setTimeout(() => {
+        window.location.reload();
+    }, 3000);
+      
     }catch(err){
       console.log(err);
     }
@@ -57,15 +62,15 @@ const SignIn = () => {
   
   return (
     <>
-    {email ? 
-      <Form onSubmit={hadelSave}>
+    {email ? (
+      showForm ?(<Form onSubmit={hadelSave} className={`fade-in-out ${showForm ? '' : 'hide'}`}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Your email</Form.Label>
-          <Form.Control type="text" placeholder="Enter Name" ref={emailRef} value={email}/>
+          <Form.Control type="text" placeholder="Enter Email" disabled={true} ref={emailRef} value={email}/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Your Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter Name" ref={msgref} value={displayName}/>
+          <Form.Control type="text" placeholder="Enter Name" disabled={true} ref={msgref} value={displayName}/>
         </Form.Group>
         <Form.Group>
           <Form.Label>Select your positon <code>*</code></Form.Label>
@@ -80,14 +85,32 @@ const SignIn = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-      </Form> 
-    : 
+      </Form> ): 
+      <>
+      <br />
+        <div class="animate-pulse flex space-x-4">
+          <div class="rounded-full bg-slate-700 h-10 w-10"></div>
+          <div class="flex-1 space-y-6 py-1">
+            <div class="h-2 bg-slate-700 rounded"></div>
+            <div class="space-y-3">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="h-2 bg-slate-700 rounded col-span-2"></div>
+                <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+              </div>
+              <div class="h-2 bg-slate-700 rounded"></div>
+            </div>
+          </div>
+        </div>
+        <br />
+        </>
+      ) : (
       <div>
         <h5>Login with email and register this account:</h5><br />
         <button type="button" onClick={handleClick} class="login-with-google-btn w-full" >
           Sign in with Google
         </button><br /><br />
       </div>
+      )
     }
     </>
 
