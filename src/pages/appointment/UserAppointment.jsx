@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Container, Col, Form, Row } from 'react-bootstrap';
 import { firestore } from '../../firebase';
 import { addDoc, collection } from '@firebase/firestore';
+import Notification from '../../Tools/Notification';
 
 const UserAppointment = () => {
+  const [showNotification, setShowNotification] = useState(false);
+  const [Mssage, setMssage] = useState('');
   const msgref = useRef();
-  const optionRef = useRef();
   const emailRef = useRef();
   const phoneRef = useRef();
   const ageRef = useRef();
@@ -33,13 +35,8 @@ const UserAppointment = () => {
       workingRoleTime: workingRoleTimeRef.current?.value || '',
       note: noteRef.current?.value || '',
     };
-
     try {
       await addDoc(ref, data);
-      localStorage.setItem('role', optionRef.current.value);
-      msgref.current.value = '';
-      optionRef.current.value = '';
-      emailRef.current.value = '';
       phoneRef.current.value = '';
       ageRef.current.value = '';
       facultyRef.current.value = '';
@@ -48,11 +45,10 @@ const UserAppointment = () => {
       workingRoleTimeRef.current.value = '';
       noteRef.current.value = '';
       workingRef.current.value = '';
-
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+      setShowNotification(true);
     } catch (err) {
+      setShowNotification(true);
+      setMssage(err.message);
       console.log(err);
     }
   };
@@ -161,6 +157,7 @@ const UserAppointment = () => {
           </Button>
         </Form>
       </Container>
+      {showNotification && (<Notification msg={Mssage} />)}
     </div>
   );
 };

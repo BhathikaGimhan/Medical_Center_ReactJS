@@ -1,21 +1,28 @@
-import React from 'react'
-import { Toast } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Toast, ToastContainer } from 'react-bootstrap'
 
-const Notification = () => {
+const Notification = ({msg}) => {
+    const [position, setPosition] = useState('bottom-end');
   return (
     <div>
-        <Toast>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
-            <strong className="me-auto">Bootstrap</strong>
-            <small className="text-muted">2 seconds ago</small>
-          </Toast.Header>
-          <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
-        </Toast>
+        <ToastContainer
+          className="p-10 mb-10"
+          position={position}
+          style={{ zIndex: 1 }}
+        >
+          <Toast>
+            <Toast.Header closeButton={false}>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Notification</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>{msg}</Toast.Body>
+          </Toast>
+        </ToastContainer>
     </div>
   )
 }
