@@ -3,8 +3,8 @@ import { Button, Container,} from 'react-bootstrap'
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import {auth, provider, firestore} from '../../firebase'
-import {addDoc,collection, getDocs, query, where} from '@firebase/firestore';
+import {firestore} from '../../firebase'
+import {addDoc,collection} from '@firebase/firestore';
 
 const UserAppointment = () => {
   const msgref = useRef();
@@ -16,7 +16,7 @@ const UserAppointment = () => {
     let data = {
       email:emailRef.current.value,
       name:msgref.current.value,
-      role:optionRef.current.value
+      role:localStorage.getItem('role')
       
     }
     try{
