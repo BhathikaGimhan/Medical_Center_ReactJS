@@ -2,23 +2,39 @@ import React, {useRef, useEffect, useState } from 'react'
 import {auth, provider, firestore} from '../../firebase'
 import { signInWithPopup } from '@firebase/auth'
 import { Button, Form } from 'react-bootstrap';
-import {addDoc,collection} from '@firebase/firestore';
+import {addDoc,collection, getDocs, query, where} from '@firebase/firestore';
 
 
 const SignIn = () => {
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [showForm, setShowForm] = useState(true);
+  const [userData, setUserData] = useState([]);
+  const [value, setValue] = useState('');
   const handleClick = () => {
     signInWithPopup(auth, provider).then((data)=>{
       setDisplayName(data.user.displayName)
       localStorage.setItem('name', data.user.displayName)
       setEmail(data.user.email)
       localStorage.setItem('email', data.user.email)
-      window.location.reload();
+      
+      if(localStorage.getItem('email')){
+        fetchData();
+        setShowForm(false);
+        setTimeout(() => window.location.reload(), 3000);
+
+        if(localStorage.getItem('role') !== null){
+          setShowForm(false);
+          setTimeout(() => window.location.reload(), 3000);
+        }else{
+          setShowForm(false);
+          setTimeout(() => window.location.reload(), 3000);
+        }
+      }
     })
-    
   }
+
+
   useEffect(() => {
     const savedEmail = localStorage.getItem('email');
     if (savedEmail) {
@@ -31,15 +47,34 @@ const SignIn = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const savedEmail = localStorage.getItem('name');
+    if (savedEmail) {
+      setValue(savedEmail);
+    }
+  }, []);
 
-  // const [showForm, setShowForm] = useState(true);
+  const fetchData = async () => {
+    const querySnapshot = await getDocs(query(collection(firestore, 'users'), where('email', '==', localStorage.getItem('email'))));
+    const data = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    setUserData(data);
+    if(data[0] && data[0].role !== null){
+      localStorage.setItem('role', data[0].email);
+    }else{
+      console.log(localStorage.getItem('role'))
+    }
+  };
+
+
   const msgref = useRef();
   const optionRef = useRef();
   const emailRef = useRef();
   const ref = collection(firestore,'users');
   const hadelSave = (e) => {
     e.preventDefault();
-    console.log(msgref.current.value);
     let data = {
       email:emailRef.current.value,
       name:msgref.current.value,

@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { collection, getDocs, query, where } from '@firebase/firestore';
-import { firestore } from '../firebase';
+import React from 'react'
 import NullLogin from '../Tools/NullLogin';
+import UserAppointment from './appointment/UserAppointment';
 
 const Appointment = () => {
   const savedEmail = localStorage.getItem('role');
+  console.log(savedEmail);
   return (
     <>
-      {savedEmail ? <div>Appointment</div> :<NullLogin />}
+      {savedEmail ? (
+        <UserAppointment />
+      ) :(
+        <NullLogin />
+        )
+      }
     </>
     
   )
