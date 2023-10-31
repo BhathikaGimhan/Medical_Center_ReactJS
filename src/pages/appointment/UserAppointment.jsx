@@ -17,15 +17,17 @@ const UserAppointment = () => {
   const workingRoleDateRef = useRef();
   const workingRoleTimeRef = useRef();
   const noteRef = useRef();
+  const userRole = useRef();
+  const formRef = useRef();
 
   const ref = collection(firestore, 'appointments');
 
   const handleSave = async (e) => {
     e.preventDefault();
-    let data = {
+    let AppointmentData = {
       email: emailRef.current?.value || '',
       name: msgref.current?.value || '',
-      role: localStorage.getItem('role'),
+      role: userRole.current?.value || '',
       phone: phoneRef.current?.value || '',
       age: ageRef.current?.value || '',
       faculty: facultyRef.current?.value || '',
@@ -36,15 +38,9 @@ const UserAppointment = () => {
       note: noteRef.current?.value || '',
     };
     try {
-      await addDoc(ref, data);
-      phoneRef.current.value = '';
-      ageRef.current.value = '';
-      facultyRef.current.value = '';
-      batchRef.current.value = '';
-      workingRoleDateRef.current.value = '';
-      workingRoleTimeRef.current.value = '';
-      noteRef.current.value = '';
-      workingRef.current.value = '';
+      await addDoc(ref, AppointmentData);
+      formRef.current.reset();
+      setMssage("Your Appointment has been recoded");
       setShowNotification(true);
     } catch (err) {
       setShowNotification(true);
@@ -56,7 +52,8 @@ const UserAppointment = () => {
   return (
     <div>
       <Container>
-        <Form onSubmit={handleSave}>
+        <Form ref={formRef} onSubmit={handleSave}>
+        <Form.Control type="text" style={{ display:'none' }} placeholder="Enter email" value={localStorage.getItem('role')} ref={userRole} />
           <Row>
             <Col md={6}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
