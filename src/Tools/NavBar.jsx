@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Nav, Navbar, Row, Col, Modal } from 'react-bootstrap';
+import { Container, Nav, Navbar, Row, Col, Modal, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Headroom from 'react-headroom';
 import UserCard from './user/UserCard';
@@ -52,6 +52,13 @@ const NavBar = () => {
               <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/contact-us">Contact</Link></Nav.Link>
               <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/about-us">About</Link></Nav.Link>
               <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/appointment">Appointment</Link></Nav.Link>
+              <NavDropdown title="Appointment" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
             </Nav>
             <Nav>
               {value ? (
