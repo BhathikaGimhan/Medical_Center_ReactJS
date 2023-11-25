@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Status = ({ status }) => {
+const Status = () => {
+  let status = 1;
   return (
     <>
       <div className={`status-view ${status === 1 ? 'active' : 'deactive'}`}>

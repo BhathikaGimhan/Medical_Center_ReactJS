@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {firestore} from '../../firebase'
-import { collection, getDocs, doc, updateDoc, deleteDoc  } from '@firebase/firestore';
+import { collection, getDocs } from '@firebase/firestore';
 
 import { Table } from 'react-bootstrap';
 
