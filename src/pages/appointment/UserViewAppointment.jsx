@@ -24,9 +24,6 @@ const UserViewAppointment = () => {
     <Table striped bordered hover responsive>
     <thead>
           <tr>
-            {/* <th>Email</th>
-            <th>Name</th> */}
-            {/* <th>Role</th> */}
             <th>Phone</th>
             <th>Age</th>
             <th>Faculty</th>
@@ -40,9 +37,6 @@ const UserViewAppointment = () => {
         <tbody>
           {data.map((item, index) => (
             <tr key={index}>
-              {/* <td>{item.email}</td>
-              <td>{item.name}</td> */}
-              {/* <td>{item.role}</td> */}
               <td>{item.phone}</td>
               <td>{item.age}</td>
               <td>{item.faculty}</td>
