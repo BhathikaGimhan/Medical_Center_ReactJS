@@ -52,7 +52,7 @@ const UserAppointment = () => {
   return (
     <div>
       <Container>
-        <Form ref={formRef} onSubmit={handleSave}>
+        <Form ref={formRef} onSubmit={handleSave} className='border p-10 rounded-md shadow-lg relative lg:top-20 max-lg:top-10 shadow-black'>
         <Form.Control type="text" style={{ display:'none' }} placeholder="Enter email" value={localStorage.getItem('role')} ref={userRole} />
           <Row>
             <Col md={6}>

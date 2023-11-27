@@ -2,7 +2,7 @@ import React from 'react'
 import Layouts from '../Layouts/Layouts'
 import Home from '../pages/Home'
 import About from '../pages/About'
-import Contact from '../pages/Contact'
+import Contact from '../pages/ContactUs'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Appointment from '../pages/appointment/UserAppointment'
 
