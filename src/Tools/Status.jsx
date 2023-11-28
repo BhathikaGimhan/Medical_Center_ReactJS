@@ -4,7 +4,7 @@ const Status = () => {
   let status = 1;
   return (
     <>
-      <div className={`status-view ${status === 1 ? 'active' : 'deactive'}`}>
+      <div className={`status-view ${status === 1 ? 'active' : 'deactive'} bg-white`}>
         <div className={`status-body ${status === 1 ? 'text-blue-500' : 'text-red-500'}`}>
           {status === 1 ? 'Active' : 'Deactive'}
         </div>

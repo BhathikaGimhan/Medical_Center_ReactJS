@@ -18,9 +18,6 @@ const Home = () => {
 
   return (
     <div>
-      <header className="bg-blue-800 text-white p-6">
-        <h1 className="text-3xl">HealthCare</h1>
-      </header>
       <main className="p-6">
         <section className="mb-10">
           <h2 className="text-2xl font-semibold mb-4">Welcome to HealthCare</h2>
@@ -45,9 +42,6 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <footer className="bg-blue-900 text-white text-center p-4">
-        © {new Date().getFullYear()} HealthCare Inc.
-      </footer>
     </div>
   );
 }
