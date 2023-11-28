@@ -53,8 +53,8 @@ const NavBar = () => {
               <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }} to="/about-us">About</Link></Nav.Link>
               {/* <Nav.Link><Link style={{ textDecoration: 'none', color: 'inherit' }}></Link></Nav.Link> */}
               <NavDropdown title="Appointment" id="basic-nav-dropdown">
-                <NavDropdown.Item to="/appointment">Appointment</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/appointment">Add Appointment</NavDropdown.Item>
+                <NavDropdown.Item  as={Link} to="/appointment-view">View History</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
