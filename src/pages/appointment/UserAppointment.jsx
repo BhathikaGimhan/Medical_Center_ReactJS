@@ -102,7 +102,7 @@ const UserAppointment = () => {
               </Col>
               <Col md={3}>
                 <Form.Group className="mb-3" controlId="formBasicBatch">
-                  <Form.Label>Your Batch</Form.Label>
+                  <Form.Label>Index Number</Form.Label>
                   <Form.Control type="text" placeholder="Enter batch" ref={batchRef} />
                 </Form.Group>
               </Col>
@@ -123,7 +123,7 @@ const UserAppointment = () => {
               </Col>
               <Col md={4}>
                 <Form.Group className="mb-3" controlId="formBasicRole">
-                  <Form.Label>Your Working Role</Form.Label>
+                  <Form.Label>Role</Form.Label>
                   <Form.Control type="text" placeholder="Enter working role" ref={workingRef} />
                 </Form.Group>
               </Col>
@@ -132,19 +132,19 @@ const UserAppointment = () => {
           <Row>
             <Col md={3}>
               <Form.Group className="mb-3">
-                <Form.Label>Your Working Role (Date)</Form.Label>
+                <Form.Label>Appointment date</Form.Label>
                 <Form.Control type="date" ref={workingRoleDateRef} />
               </Form.Group>
             </Col>
             <Col md={3}>
               <Form.Group className="mb-3">
-                <Form.Label>Your Working Role (Time)</Form.Label>
+                <Form.Label>Appointment time</Form.Label>
                 <Form.Control type="time" ref={workingRoleTimeRef} />
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Your Note</Form.Label>
+                <Form.Label>Description</Form.Label>
                 <Form.Control as="textarea" placeholder="Enter working role" ref={noteRef} />
               </Form.Group>
             </Col>

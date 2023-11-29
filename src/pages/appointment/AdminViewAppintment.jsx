@@ -55,11 +55,11 @@ const AdminViewAppintment = () => {
             <th>Phone</th>
             <th>Age</th>
             <th>Faculty</th>
-            <th>Batch</th>
-            <th>Working Ref</th>
-            <th>Working Role Date</th>
-            <th>Working Role Time</th>
-            <th>Note</th>
+            <th>Index Number	</th>
+            <th>Role</th>
+            <th>Appointment date</th>
+            <th>Appointment time</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>

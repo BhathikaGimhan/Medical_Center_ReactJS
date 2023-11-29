@@ -48,7 +48,7 @@ const SignIn = () => {
   }, []);
 
   useEffect(() => {
-    const savedEmail = localStorage.getItem('name');
+    const savedEmail = localStorage.getItem('email');
     if (savedEmail) {
       setValue(savedEmail);
     }
@@ -62,7 +62,7 @@ const SignIn = () => {
     }));
     setUserData(data);
     if(data[0] && data[0].role !== null){
-      localStorage.setItem('role', data[0].email);
+      localStorage.setItem('role', data[0].role);
     }else{
       console.log(localStorage.getItem('role'))
     }
@@ -72,13 +72,15 @@ const SignIn = () => {
   const msgref = useRef();
   const optionRef = useRef();
   const emailRef = useRef();
+  const role = useRef();
   const ref = collection(firestore,'users');
   const hadelSave = (e) => {
     e.preventDefault();
     let data = {
       email:emailRef.current.value,
       name:msgref.current.value,
-      role:optionRef.current.value
+      role:optionRef.current.value,
+      userRole:role.current.value
       
     }
     try{
@@ -117,6 +119,7 @@ const SignIn = () => {
           <option value="2">Lectur</option>
           <option value="3">Other</option>
           </Form.Select>
+          <input type="hidden" name="role" ref={role} value={'user'}/>
         </Form.Group>
 
         <Button variant="primary" type="submit">
