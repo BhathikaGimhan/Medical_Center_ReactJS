@@ -41,7 +41,7 @@ const NavBar = () => {
             <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/">
               <Row>
                 <Col><img src="./assets/logo.png" className='w-10 h-10' alt="" /></Col>
-                <Col><div className="pt-1">Medical Center</div></Col>
+                <Col><div className="pt-1">TrincCare</div></Col>
               </Row>
             </Link>
           </Navbar.Brand>
