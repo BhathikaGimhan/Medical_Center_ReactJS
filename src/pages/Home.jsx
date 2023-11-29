@@ -18,9 +18,9 @@ const Home = () => {
 
   return (<>
       <div className="relative bg-cover bg-center bg-no-repeat h-screen" style={{ backgroundImage: "url('./assets/hoem.jpg')" }}>
-        <div className="absolute inset-0 bg-black opacity-40"></div>
+        <div className="absolute inset-0"></div>
         <div className="flex justify-center items-center h-full">
-          <div className="text-center opacity-100 text-white p-6 bg-gray-900 bg-opacity-50 rounded-lg">
+          <div className="text-center text-white p-6 bg-gray-900 bg-opacity-90 rounded-lg">
             <h1 className="text-5xl font-bold mb-4">Welcome to TrincCare</h1>
             <h2 className="text-2xl mb-6">Where Compassion Meets Innovation</h2>
             <p className="mb-6 m-40 leading-relaxed">
@@ -29,9 +29,9 @@ const Home = () => {
               your well-being. Explore our website to discover how we are redefining healthcare
               management to ensure a seamless and patient-centric experience.
             </p>
-            <a href="#services" className="text-white bg-purple-500 hover:bg-purple-600 font-semibold py-2 px-4 border border-purple-700 rounded shadow">
+            {/* <a href="#services" className="text-white bg-purple-500 hover:bg-purple-600 font-semibold py-2 px-4 border border-purple-700 rounded shadow">
               Explore Our Services
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@ const Home = () => {
             </div>
           </div>
           <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-shadow hover:shadow-xl">
-            {/* <img className="w-full h-48 object-cover" src="https://via.placeholder.com/400x300" alt="Service 2"/> */}
+            {/* <img className="w-full h-48 object-cover" src="https://via.placeholder.com/400x300" alt="Service 2"/>Notice */}
             <div className="p-6">
               <h4 className="text-lg font-semibold mb-3">Personalized Treatment</h4>
               <p className="text-gray-600 text-sm">
