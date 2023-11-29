@@ -11,9 +11,9 @@ const Layouts = () => {
     <>
       <NavBar /> 
       <Status status={2} /> 
-      <Container>
+      {/* <Container> */}
         <Outlet />
-      </Container>
+      {/* </Container> */}
     </>
   )
 }

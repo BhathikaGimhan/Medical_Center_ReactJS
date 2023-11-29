@@ -12,7 +12,7 @@ const About = () => {
         
         <div className="grid md:grid-cols-2 gap-10">
           <div className="mb-6 md:mb-0">
-            <img src="https://via.placeholder.com/400x300" alt="Healthcare" className="w-full rounded-lg" />
+            <img src="./assets/homeImage.jpeg" alt="Healthcare" className="w-full rounded-lg" />
           </div>
           <div className="space-y-4 text-left">
             <div className="bg-blue-100 p-4 rounded-lg hover:bg-blue-200 transition-colors">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {firestore} from '../../firebase'
 import { collection, getDocs } from '@firebase/firestore';
-import { Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 
 const AdminViewAppintment = () => {
   const [data, setData] = useState([]);
@@ -45,6 +45,7 @@ const AdminViewAppintment = () => {
     }
   }, []);
   return (
+    <Container>
     <div>
       <Table striped bordered hover responsive>
     <thead>
@@ -81,6 +82,7 @@ const AdminViewAppintment = () => {
         </tbody>
     </Table>
     </div>
+    </Container>
   )
 }
 

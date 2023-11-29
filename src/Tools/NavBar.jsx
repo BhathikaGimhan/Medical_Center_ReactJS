@@ -55,9 +55,9 @@ const NavBar = () => {
               <NavDropdown title="Appointment" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/appointment">Add Appointment</NavDropdown.Item>
                 <NavDropdown.Item  as={Link} to="/appointment-view">View History</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>
             </Nav>
             <Nav>
