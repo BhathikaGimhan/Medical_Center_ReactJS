@@ -78,7 +78,11 @@ const NavBar = () => {
               <NavDropdown title="Appointment" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/appointment">Add Appointment</NavDropdown.Item>
                 <NavDropdown.Item  as={Link} to="/appointment-view">View History</NavDropdown.Item>
-                {savedRole==='admin' && (<><NavDropdown.Divider /><NavDropdown.Item  as={Link} to="/admin-appointment-view">View All</NavDropdown.Item></>)}
+                {savedRole==='admin' && (<>
+                <NavDropdown.Divider />
+                <NavDropdown.Item  as={Link} to="/admin-appointment-view">View All</NavDropdown.Item>
+                <NavDropdown.Item  as={Link} to="/admin-add-notice">Add Notice</NavDropdown.Item>
+                </>)}
                 {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}

@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import UserAppointment from '../pages/appointment/UserAppointment'
 import UserViewAppointment from '../pages/appointment/UserViewAppointment'
 import Appointment from '../pages/Appointment'
+import Notice from '../pages/Notice';
+
 
 const MainRouters = () => {
   return (
@@ -20,6 +22,7 @@ const MainRouters = () => {
                 <Route path="appointment" element={<UserAppointment />} />
                 <Route path="appointment-view" element={<Appointment />} />
                 <Route path="admin-appointment-view" element={<UserViewAppointment />} />
+                <Route path="admin-add-notice" element={<Notice />} />
             </Route>
           </Routes>
       </BrowserRouter>
