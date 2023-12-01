@@ -35,7 +35,6 @@ const Home = () => {
         <h3 className="text-3xl text-center text-gray-800 font-bold mb-8">Notice</h3>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-shadow hover:shadow-xl">
-            {/* <img className="w-full h-48 object-cover" src="https://via.placeholder.com/400x300" alt="Service 1"/> */}
             <div className="p-6">
               <h4 className="text-lg font-semibold mb-3">Advanced Diagnostics</h4>
               <p className="text-gray-600 text-sm">
@@ -44,7 +43,6 @@ const Home = () => {
             </div>
           </div>
           <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-shadow hover:shadow-xl">
-            {/* <img className="w-full h-48 object-cover" src="https://via.placeholder.com/400x300" alt="Service 2"/> */}
             <div className="p-6">
               <h4 className="text-lg font-semibold mb-3">Personalized Treatment</h4>
               <p className="text-gray-600 text-sm">
@@ -53,7 +51,6 @@ const Home = () => {
             </div>
           </div>
           <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-shadow hover:shadow-xl">
-            {/* <img className="w-full h-48 object-cover" src="https://via.placeholder.com/400x300" alt="Service 2"/>Notice */}
             <div className="p-6">
               <h4 className="text-lg font-semibold mb-3">Personalized Treatment</h4>
               <p className="text-gray-600 text-sm">
