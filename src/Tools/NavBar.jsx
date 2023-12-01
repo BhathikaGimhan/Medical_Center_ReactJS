@@ -3,6 +3,8 @@ import { Container, Nav, Navbar, Row, Col, Modal, NavDropdown } from 'react-boot
 import { Link } from 'react-router-dom';
 import Headroom from 'react-headroom';
 import UserCard from './user/UserCard';
+import {firestore} from '../firebase'
+import {collection, getDocs, query, where} from '@firebase/firestore';
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
@@ -33,6 +35,27 @@ const NavBar = () => {
 
   const savedEmail = localStorage.getItem('role');
 
+  const fetchData = async () => {
+    const querySnapshot = await getDocs(query(collection(firestore, 'users'), where('email', '==', localStorage.getItem('email'))));
+    const data = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    if(data[0] && data[0].role !== null){
+      // console.log('update',data[0].userRole);
+      localStorage.setItem('role', data[0].role);
+      localStorage.setItem('userRole', data[0].userRole);
+    }else{
+      console.log(localStorage.getItem('role'))
+    }
+  };
+  // console.log("hi",localStorage.getItem('role'));
+  const savedRole = localStorage.getItem('userRole');
+  // console.log(savedRole);
+
+
+  fetchData();
+
   return (
     <Headroom>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -55,8 +78,9 @@ const NavBar = () => {
               <NavDropdown title="Appointment" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/appointment">Add Appointment</NavDropdown.Item>
                 <NavDropdown.Item  as={Link} to="/appointment-view">View History</NavDropdown.Item>
+                {savedRole==='admin' && (<><NavDropdown.Divider /><NavDropdown.Item  as={Link} to="/admin-appointment-view">View All</NavDropdown.Item></>)}
                 {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
+                
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>
             </Nav>
