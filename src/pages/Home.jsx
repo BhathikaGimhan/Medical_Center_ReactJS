@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import NoticeView from './NoticeView';
 // import NullLogin from '../Tools/NullLogin';
 // import Appointment from './Appointment';
 
@@ -31,35 +32,9 @@ const Home = () => {
         </div>
       </div>
 
-      <div id="services" className="container mx-auto px-6 py-16">
-        <h3 className="text-3xl text-center text-gray-800 font-bold mb-8">Notice</h3>
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-shadow hover:shadow-xl">
-            <div className="p-6">
-              <h4 className="text-lg font-semibold mb-3">Advanced Diagnostics</h4>
-              <p className="text-gray-600 text-sm">
-                Cutting-edge diagnostics for accurate and timely health assessments.
-              </p>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-shadow hover:shadow-xl">
-            <div className="p-6">
-              <h4 className="text-lg font-semibold mb-3">Personalized Treatment</h4>
-              <p className="text-gray-600 text-sm">
-                Tailored healthcare plans to fit your unique lifestyle and needs.
-              </p>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-shadow hover:shadow-xl">
-            <div className="p-6">
-              <h4 className="text-lg font-semibold mb-3">Personalized Treatment</h4>
-              <p className="text-gray-600 text-sm">
-                Tailored healthcare plans to fit your unique lifestyle and needs.
-              </p>
-            </div>
-          </div>
-          </div>
-          </div>
+      
+          <NoticeView></NoticeView>
+          
           </>
     // </div>
   );
