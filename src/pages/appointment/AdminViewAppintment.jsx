@@ -5,13 +5,11 @@ import { Container, Table } from 'react-bootstrap';
 
 const AdminViewAppintment = () => {
   const [data, setData] = useState([]);
-  console.log(localStorage);
+  // console.log(localStorage);
   if(localStorage.role === 1){
     
   }
   useEffect(() => {
-
-    if(localStorage.role === '1'){
       const fetchData = async () => {
         const querySnapshot = await getDocs(collection(firestore, 'appointments'));
         const tempData = [];
@@ -19,7 +17,7 @@ const AdminViewAppintment = () => {
         querySnapshot.forEach(doc => {
           const appointmentData = doc.data();
           if (appointmentData.email === localStorage.email) {
-            console.log(localStorage.role);
+            // console.log(localStorage.role);
             tempData.push(appointmentData);
           }
         });
@@ -28,21 +26,6 @@ const AdminViewAppintment = () => {
       };
       
       fetchData();
-      
-    }else if(localStorage.role === 'admin'){
-      const fetchData = async () => {
-        const querySnapshot = await getDocs(collection(firestore, 'appointments'));
-        const tempData = [];
-            // console.log(localStorage.email);
-        querySnapshot.forEach(doc => {
-          tempData.push(doc.data());
-        });
-      
-        setData(tempData);
-      };
-      
-      fetchData();
-    }
   }, []);
   return (
     <Container>

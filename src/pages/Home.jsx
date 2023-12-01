@@ -6,8 +6,6 @@ const Home = () => {
   const [services, setServices] = React.useState([]);
 
   useEffect(() => {
-    // Fetch healthcare services and set them to the state
-    // Placeholder for fetching services logic
     setServices([
       { id: 1, name: 'Dental Care', description: 'Comprehensive dental treatments for all ages.' },
       { id: 2, name: 'Cardiology', description: 'Expert heart care with advanced diagnostic services.' },
@@ -29,9 +27,6 @@ const Home = () => {
               your well-being. Explore our website to discover how we are redefining healthcare
               management to ensure a seamless and patient-centric experience.
             </p>
-            {/* <a href="#services" className="text-white bg-purple-500 hover:bg-purple-600 font-semibold py-2 px-4 border border-purple-700 rounded shadow">
-              Explore Our Services
-            </a> */}
           </div>
         </div>
       </div>
