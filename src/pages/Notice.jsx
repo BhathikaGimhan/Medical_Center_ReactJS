@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { firestore } from '../firebase';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { Button, Container, Form } from 'react-bootstrap';
+import NoticeView from './NoticeView';
 
 const Notice = () => {
     const [title, setTitle] = useState('');
@@ -61,6 +62,10 @@ const Notice = () => {
                         Clear
                     </Button>
                 </Form>
+                <br />
+                <hr />
+                <h2>Show Notice</h2>
+                <NoticeView></NoticeView>
             </Container>
         </div>
     );
